@@ -51,12 +51,12 @@ preprocessor = ColumnTransformer(
     ]
 )
 
-# Use a different estimator in the pipeline
+# Build the pipeline
 pipeline = Pipeline(
     steps=[("preprocessor", preprocessor), ("regressor", RandomForestRegressor())]
 )
 
-# fit the pipeline to train a linear regression model on the training set
+# fit the pipeline to train the model on the training set
 model = pipeline.fit(X_train, y_train)
 
 # --------------------------------------------------------------
@@ -83,4 +83,13 @@ plot_residuals(y_test, predictions, bins=15)
 # --------------------------------------------------------------
 
 ref_cols = list(X.columns)
-joblib.dump([model, ref_cols, target], "../../models/model.pkl")
+
+"""
+In Python, you can use joblib or pickle to serialize (and deserialize) an object structure into (and from) a byte stream. 
+In other words, it's the process of converting a Python object into a byte stream that can be stored in a file.
+
+https://joblib.readthedocs.io/en/latest/generated/joblib.dump.html
+
+"""
+
+joblib.dump(value=[model, ref_cols, target], filename="../../models/model.pkl")
