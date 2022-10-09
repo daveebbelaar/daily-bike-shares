@@ -80,7 +80,7 @@ def plot_residuals(y_test, y_pred, bins=25):
         bins (int, optional). Defaults to 25.
     """
     
-    residuals = y_pred - y_test
+    residuals = y_test - y_pred
     
     plt.figure(figsize=(20, 5))
     plt.hist(residuals, bins=bins, rwidth=0.95)
