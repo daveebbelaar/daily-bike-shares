@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import pandas as pd
 
 # --------------------------------------------------------------
@@ -11,9 +12,10 @@ https://www.capitalbikeshare.com/system-data
 
 """
 
-# Load data
+
 bike_data = pd.read_csv("../../data/raw/daily-bike-share.csv")
 bike_data.info()
+
 
 # Select relevant features
 relevant_features = [
